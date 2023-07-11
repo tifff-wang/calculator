@@ -1,0 +1,9 @@
+in Html file, need a line for displaying the calculation and a line for displaying the number pressed. 
+display "0" as default.
+add all the buttons with their relevant id.
+add onclick to all the buttons.
+when a number or "." is pressed, display it on number pressed line. 
+the number is kept adding next to the previous number until an operator is pressed.
+when an operator is pressed, transfer the numbers and the operator to the calculation display line.
+when pressing "=" calculate the result and display the result.
+when press "AC" clear all the calculation and display.
