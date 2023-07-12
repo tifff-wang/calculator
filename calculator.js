@@ -4,7 +4,6 @@ const specials = ['%', '/', '*', '-', '+', '=']
 const operators = ['/', '*', '-', '+']
 let calculation = ''
 let output = ''
-let decimalDotCount = 0
 let isEquals = false
 
 buttons.forEach((button) => {
@@ -28,11 +27,10 @@ buttons.forEach((button) => {
       calculation = calculation.slice(0, -1)
       displayCalculation()
     } else if (input === '.') {
-      input = output ? '.' : '0.'
-      decimalDotCount++
-      if (decimalDotCount > 1) {
+      if (output.indexOf('.') > 0) {
         return
       }
+      input = output ? '.' : '0.'
       updateCalculation(input)
     } else if (calculation === '' && specials.includes(input)) {
       return
