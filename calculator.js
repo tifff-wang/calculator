@@ -12,7 +12,7 @@ buttons.forEach((button) => {
 
     if ((input === '=') & (calculation !== '')) {
       let result = eval(calculation)
-      output = Number.isInteger(result) ? result : parseFloat(result).toFixed(5)
+      output = Number.isInteger(result) ? result : parseFloat(result.toFixed(5))
       displayCalculation()
       isEquals = true
     } else if (input === '%') {
