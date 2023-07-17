@@ -10,17 +10,17 @@ buttons.forEach((button) => {
     let input = evt.target.innerHTML
 
     if (input === '=') {
-      clickCalculate()
+      onClickCalculate()
     } else if (input === 'AC') {
       reset()
     } else if (input === 'DE') {
-      clickDelete()
+      onClickDelete()
     } else if (input === '.') {
-      clickDot()
+      onClickDot()
     } else if (operators.includes(input) || input === '%') {
-      clickOperator(input)
+      onClickOperator(input)
     } else {
-      clickNumber(input)
+      onClickNumber(input)
     }
 
     console.log(calculation)
@@ -57,7 +57,7 @@ function removeLastInput() {
   displayingText = displayingText.slice(0, -1)
 }
 
-function clickNumber(input) {
+function onClickNumber(input) {
   // start new calculation when tap on a number with a result
   if (result) {
     reset()
@@ -88,7 +88,7 @@ function clickNumber(input) {
   updateCalculation(input)
 }
 
-function clickCalculate() {
+function onClickCalculate() {
   if (calculation === '') {
     return
   }
@@ -101,7 +101,7 @@ function clickCalculate() {
   displayCalculation()
 }
 
-function clickDelete() {
+function onClickDelete() {
   // restore result to continue calculating
   if (result) {
     resetResult()
@@ -112,7 +112,7 @@ function clickDelete() {
   displayCalculation()
 }
 
-function clickDot() {
+function onClickDot() {
   // if the last input was an operater, clear the display and then show new number: `0.`
   if (isLastInputOperator()) {
     displayingText = ''
@@ -135,7 +135,7 @@ function clickDot() {
   updateCalculation(input)
 }
 
-function clickOperator(input) {
+function onClickOperator(input) {
   // restore result to continue calculating
   if (result) {
     resetResult()
