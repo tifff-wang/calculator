@@ -1,11 +1,9 @@
 const display = document.getElementById('display')
 const buttons = [...document.getElementsByClassName('button')]
-// const specials = ['%', '/', '*', '-', '+', '=']
 const operators = ['/', '*', '-', '+']
 let calculation = ''
 let result = ''
 let displayingText = ''
-// let isEquals = false
 
 buttons.forEach((button) => {
   button.addEventListener('click', (evt) => {
@@ -24,6 +22,8 @@ buttons.forEach((button) => {
     } else {
       clickNumber(input)
     }
+
+    console.log(calculation)
   })
 })
 
@@ -102,6 +102,11 @@ function clickCalculate() {
 }
 
 function clickDelete() {
+  // restore result to continue calculating
+  if (result) {
+    resetResult()
+  }
+
   displayingText = displayingText.toString().slice(0, -1)
   calculation = calculation.slice(0, -1)
   displayCalculation()
@@ -133,8 +138,7 @@ function clickDot() {
 function clickOperator(input) {
   // restore result to continue calculating
   if (result) {
-    calculation = result
-    result = ''
+    resetResult()
   }
 
   if (calculation === '') {
@@ -153,6 +157,11 @@ function reset() {
   result = ''
   calculation = ''
   displayCalculation()
+}
+
+function resetResult() {
+  calculation = result
+  result = ''
 }
 
 function updateCalculation(input) {
